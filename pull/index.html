@@ -1,151 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-  		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-		<style type="text/css"> #myDiv{width: 50%;} </style>
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
-		<!--交互回调脚本-->
-		<script type="text/javascript">
-		    $(function(){//按钮单击时执行
-		        $("#testAjax").click(function(){//Ajax调用处理
-		            $.ajax({
-		               type: "POST",//规定传输方式
-		               url: "http://cc.color3.cn/pull.php",//提交URL
-		               data: {'path':$('#path').val(),'branch':$('#branch').val(),'token':$('#token').val()},//提交的数据
-		               success: function(data){
-		                        $("#myDiv").html('<h2>'+data+'</h2>');//交互成功回调
-		               }
-		            });
-		         });
-		    });
-			function mytime(){
-		        var a = new Date();
-		        var b = a.toLocaleTimeString();
-		        var c = a.toLocaleDateString();
-		        document.getElementById("time1").innerHTML = c+"&nbsp"+b;
-		    }
-		    setInterval(function() {mytime()});
-
-		</script>
-	</head>
 	<body>
-		<title>代码同步工具</title>
-
-		<div class="container demo-1">
-			<div class="content">
-				<div id="large-header" class="large-header">
-
-
-
-<div style="left: 450px; top:60px;">
-
-		<h1><a href="http://cc.color3.cn/pull" style="color: #66FFCC"> 代码同步工具  </a></h1> <!--标题-->
-
-		    路径： <input type="text" name="path"   id="path"
-				value="/www/cc.color3.cn" style="height:33px;width:160px;color: #kkk;
-				background:transparent;border:2px solid #ccc"><br/>
-		<p></p>
-			分支： <input type="text" name="branch" id="branch"
-				value="pro102"            style="height:33px;width:160px;color: #kkk;
-				background:transparent;border:2px solid #ccc"><br/>
-
-			<input type="hidden" name="token" id="token" value="NzBkNDQ3NzViM2YwNDAwNGUyNWQyZWJkMDM5OTU5MjI2YjI0MTNkOQ==">
-		<p></p>
-			<button id="testAjax" type="button" style="height:40px;width:200px;
-					 color: #CCFF99;background:transparent;border:2px solid #66FFCC"><font size="4">远程拉取</font></button>
-
-					 <br style="color: #ccc;">注意： 请确认项目路径及推送分支!</br>
-					 <td style="color: #ccc;">提示： 自行更改常用默认路径分支!</td>
-		<p></p>
-			<font size="3" face="Times" style="color: #kkk">
-			<b id="time1"></b>
-			</font> <!--实时时间-->
-		<p></p>
-			<font size="1.6" face="Times" style="color: #ff60af">
-			<div id="myDiv"></div>
-			</font> <!--执行输出-->
-</div>
-<canvas  id="demo-canvas"></canvas>
-  <div style="position:absolute;left: 700px; top:120px;"  class="time" id="time" data-hours="" data-minutes="">
-  <div class="digit">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <div class="digit">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <div class="digit">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <div class="digit">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <div class="digit">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <div class="digit">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-
-
-  </div>
-
-
-				</div>
-			</div>
-		</div><!-- /container -->
-
-			<script src="js/TweenLite.min.js"></script>
-			<script src="js/EasePack.min.js"></script>
-			<script src="js/rAF.js"></script>
-			<script src="js/demo-1.js"></script>
-			<script src='js/Rx.min.js'></script>
-			<script src='js/rxcss.min.js'></script>
-			<script src="js/index.js"></script>
-
+		<script>  
+		function browserRedirect() {  
+		    var sUserAgent = navigator.userAgent.toLowerCase();  
+		    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+		    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+		    var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+		    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+		    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+		    var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+		    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+		    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+		    if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){  
+		        window.location.href="http://cc.color3.cn/pull/pull.html";  
+		    } else {  
+		        window.location.href="http://cc.color3.cn/pull/pull-m.html";  
+		    }  
+		}  
+		browserRedirect();  
+		</script>  
 	</body>
-
 </html>
