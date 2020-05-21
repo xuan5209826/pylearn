@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>	
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script><!--交互回调脚本-->
+	<script type="text/javascript">
+		$(function(){//按钮单击时执行
+			$("#testAjax").click(function(){//Ajax调用处理
+				$.ajax({
+				   type: "POST",//规定传输方式
+				   url: "http://cc.color3.cn/pull.php",//提交URL
+				   data: {'path':$('#path').val(),'branch':$('#branch').val(),'token':$('#token').val()},//提交的数据
+				   success: function(data){
+							$("#myDiv").html('<h2>'+data+'</h2>');//交互成功回调
+				   }
+				});
+			 });
+		});
+		function mytime(){
+			var a = new Date();
+			var b = a.toLocaleTimeString();
+			var c = a.toLocaleDateString();
+			document.getElementById("time1").innerHTML = c+"&nbsp"+b;
+		}
+		setInterval(function() {mytime()});
+	</script>
+	<script>
+	function clear() {
+	Source=document.body.firstChild.data;
+	document.open();
+	document.close();
+	document.body.innerHTML=Source;
+	}
+	</script>
+		<script language=javascript>
+			var number = Math.random();
+			number = Math.ceil(number * 2);
+			document.write('<body background="img/'+number+'.jpg""><p></body>');
+		</script>
+</head>
+
+<title>代码同步工具</title>
+
+<!--<body background="img/xjj.jpg" 
+style=" background-repeat:no-repeat ;
+background-size:cover; 
+background-attachment: fixed;"-->
+
+<div style=" height: auto; width: auto;margin:130px">	
+<center>
+<h1><a href="http://cc.color3.cn/pull" style="color: #11FF11"> 代码同步工具  </a></h1> <!--标题-->
+    路径： <input type="text" name="path"   id="path" 
+		value="/www/cc.color3.cn" style="height:30px;width:160px;color: #kkk;
+		background:transparent;border:2px solid #ccc"><br/>
+<p></p>
+	分支： <input type="text" name="branch" id="branch" 
+		value="pro102"            style="height:30px;width:160px;color: #kkk;
+		background:transparent;border:2px solid #ccc"><br/>
+	<input type="hidden" name="token" id="token" value="NzBkNDQ3NzViM2YwNDAwNGUyNWQyZWJkMDM5OTU5MjI2YjI0MTNkOQ==">
+<p></p>
+	<button id="testAjax" type="button" style="height:40px;width:200px;
+			 color: #0000FF;background:transparent;border:2px solid #11FF11"><b>远程拉取</b></button>	 
+			 <br style="color: #ccc;">注意： 请确认项目路径及推送分支!</br>
+			 <td style="color: #ccc;">提示： 自行更改常用默认路径分支!</td>
+<p></p>
+	<b style="color: #kkk;"id="time1"></b>	<!--实时时间-->
+	<font size="2" face="Times" style="color: #ff60af"><div id="myDiv"></div></font> <!--执行输出-->
+</div>
+</body>
+</html>
